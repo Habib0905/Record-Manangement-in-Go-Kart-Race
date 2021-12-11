@@ -1,0 +1,113 @@
+.container {
+  margin: 0;
+  background-image: url("Race background 2.jpg"); 
+  background-position: 100% 85%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+}
+
+.topnav {
+  background-color: black;
+  height: 70px;
+  
+ 
+}
+
+
+.button {
+  background-color: #B40500; 
+  color: white; 
+  border: 2px solid #B40500;
+  border-radius: 10px;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 10px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  float: right
+}
+
+
+.button:hover {
+  background-color: black;
+  color: white;
+}
+
+.button1 {
+  background-color: #B40500; 
+  color: white; 
+  border: 2px solid #B40500;
+  border-radius: 10px;
+  height: 50px;
+  width: 250px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  position: relative;
+  top: 380px;
+  left: 430px
+ 
+}
+
+
+.button1:hover {
+  background-color: transparent;
+  color: white;
+}
+
+.logo{
+ 
+ height: 70px;
+ width: 150px;
+
+}
+
+
+.sign-up-form{
+ 
+ width: 300px;
+ height: 820px;
+ box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+ background: #181A1B;
+ padding: 20px;
+ margin:  auto;
+ border: 2px solid #B40500;
+ border-radius : 10px;
+ 
+
+}
+input{
+	
+	border-radius: 20px;
+	padding:10px;
+	margin: 10px 0;
+	width: 93%;
+	border: 1px solid #B40500;
+	outline: none;
+	
+	
+	
+	
+}
+
+.sign-up-body{
+	 margin: 0;
+     font-family: sans-serif;
+	color: white;
+    background-image: url("Race background 2.jpg"); 
+    background-position: 100% 85%;
+    background-repeat: no-repeat;
+    background-size: cover;
+	background-attachment: fixed;
+	
+
+
