@@ -1,3 +1,14 @@
+<?php 
+session_start();
+
+	include("connection.php");
+	include("functions.php");
+
+	$user_data = check_login($link);
+	
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +21,7 @@
 
 
 <style>
-h1{
+h2{
 	font-family: 'Racing Sans One';
 	color: #DBD8D3;
 	text-align: center;
@@ -24,12 +35,18 @@ h1{
 <body class = "container">
 <div class="topnav">
  <img class = "logo" src = "logo.jpg" >
-  <button class = "button" onclick="location.href='signup.php'" type="button">Sign up</button>
-  <h1> Welcome to Dhaka Go-Kart Pag </h1>
+  <button class = "button" onclick="location.href='logout.php'" type="button">Logout</button>
+  <h2> Welcome to your Go-Kart Dashboard </h2>
+  
+  <p style = "color: white; text-align: center; position: relative; bottom: 90px; font-family:'Racing Sans One'; font-size: 20px"> Welcome  <?php
+  
+  echo $user_data['name'];
+  ?> </p> 
+
 </div>
  <div>
-   <button class = "button1" onclick="location.href='admin_login.php'" type="button">Admin login</button>
-   <button class = "button1" onclick="location.href='player_login.php'" type="button">Player login</button>
+   <button class = "button1" onclick="location.href=''" type="button">Personal Info</button>
+   <button class = "button1" onclick="location.href=''" type="button">Performance info</button>
   </div>
 
 

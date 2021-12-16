@@ -1,7 +1,7 @@
 .container {
   margin: 0;
-  background-image: url("Race background 2.jpg"); 
-  background-position: 100% 85%;
+  background-image: url('Race background 2.jpg'); 
+  background-position: 100% 80%;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -11,7 +11,7 @@
 .topnav {
   background-color: black;
   height: 70px;
-  
+ 
  
 }
 
@@ -54,7 +54,7 @@
   transition-duration: 0.4s;
   cursor: pointer;
   position: relative;
-  top: 380px;
+  top: 395px;
   left: 430px
  
 }
@@ -99,7 +99,7 @@
  margin:  auto;
  border: 2px solid #B40500;
  border-radius : 10px;
-  position: relative;
+ position: relative;
  top: 5px;
  
  
@@ -120,16 +120,14 @@ input{
 }
 
 .sign-up-body{
-	 margin: 0;
-     font-family: sans-serif;
+	margin: 0;
+    font-family: sans-serif;
 	color: white;
     background-image: url("Race background 2.jpg"); 
-    background-position: 100% 85%;
+    background-position: 100% 80%;
     background-repeat: no-repeat;
     background-size: cover;
 	background-attachment: fixed;
 	
 }
-	
-
 
