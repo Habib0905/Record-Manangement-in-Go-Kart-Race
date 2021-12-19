@@ -28,7 +28,7 @@ session_start();
 	  <form action="" method="post">
 
 	  <?php 
-// Attempt select query execution
+
 $sql = "SELECT * FROM performance";
 if($result = mysqli_query($link, $sql)){
  if(mysqli_num_rows($result) > 0){
@@ -50,7 +50,7 @@ if($result = mysqli_query($link, $sql)){
  echo "</tr>";
  }
  echo "</table>";
- // Free result set
+
  mysqli_free_result($result);
  } else{
  echo "No records matching your query were found.";
