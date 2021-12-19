@@ -48,7 +48,7 @@ session_start();
  
 	  
 	  
-	  <!-- <button class = "button" type = "submit" name = "submit" style = "margin-right: 19px;">Edit Info</input> -->
+	 
 	  <button class = "button" onclick="location.href='Loginpage.html'" type="button"formnovalidate>Back</button>
   </div>
 
