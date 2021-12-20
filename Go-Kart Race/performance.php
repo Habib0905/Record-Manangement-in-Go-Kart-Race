@@ -2,8 +2,12 @@
 session_start();
 
 	include("connection.php");
+	include("functions.php");
 
+	$user_data = check_login($link);
+	
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,16 +24,16 @@ session_start();
  <img class = "logo" src = "logo.jpg" >
   <button class = "button" onclick="location.href='logout.php'" type="button">Logout</button>
   
-  <p style = "color: white; text-align: center; position: relative; bottom: 90px; font-family:'Racing Sans One'; font-size: 20px"> Player Home
+  <p style = "color: white; text-align: center; position: relative; bottom: 90px; font-family:'Racing Sans One'; font-size: 20px"> Player Home </p>
 </div>
   <div class = "per_info">
        <h1>Performance Data</h1>
+	   
       <hr>
-	  <form action="" method="post">
-
+	  
 	  <?php 
 
-$sql = "SELECT * FROM performance";
+$sql = "SELECT * FROM performance where id ='$user_data[id]'";
 if($result = mysqli_query($link, $sql)){
  if(mysqli_num_rows($result) > 0){
  echo "<table>";
@@ -42,11 +46,11 @@ if($result = mysqli_query($link, $sql)){
  echo "</tr>";
  while($row = mysqli_fetch_array($result)){
  echo "<tr>";
- echo "<td>" . $row['practice_no'] . "</td>";
+ echo "<td>" . $row['practise_no'] . "</td>";
+ echo "<td>" . $row['laptime'] . "</td>";
  echo "<td>" . $row['score'] . "</td>";
  echo "<td>" . $row['avg_score'] . "</td>";
  echo "<td>" . $row['percent_imp'] . "</td>";
- echo "<td>" . $row['lap_time'] . "</td>";
  echo "</tr>";
  }
  echo "</table>";
@@ -61,20 +65,15 @@ if($result = mysqli_query($link, $sql)){
 
 ?>
 
-	 
-
+	
       <br>
 
-
- 
+	  <button class = "button" onclick="location.href='player_home.php'" type="button" style = "position: relative; right: 287px"; >Back</button>
 	  
-	  
-	
-	  <button class = "button" onclick="location.href='Loginpage.html'" type="button"formnovalidate>Back</button>
-	  </div>
-  </div>
+ </div>
 
 
 
 </body>
 </html>
+
