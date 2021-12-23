@@ -11,6 +11,9 @@
 .topnav {
   background-color: black;
   height: 70px;
+  width: 100%;
+  position:fixed;
+  z-index: 1;
  
  
 }
@@ -65,6 +68,30 @@
   color: white;
 }
 
+.button2 {
+  background-color: #B40500; 
+  color: white; 
+  border: 2px solid #B40500;
+  border-radius: 5px;
+  height: 50px;
+  width: 230px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  
+ 
+}
+
+
+.button2:hover {
+  background-color: transparent;
+  color: white;
+}
+
 .logo{
  
  height: 70px;
@@ -84,7 +111,7 @@
  border: 2px solid #B40500;
  border-radius : 10px;
  position: relative;
- top: 5px;
+ top:90px;
  
 
 }
@@ -100,7 +127,24 @@
  border: 2px solid #B40500;
  border-radius : 10px;
  position: relative;
- top: 5px;
+ top: 90px;
+ 
+ 
+
+}
+
+.search-box{
+ 
+ width: 300px;
+ height: 400px;
+ box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+ background: #181A1B;
+ padding: 20px;
+ margin:  auto;
+ border: 2px solid #B40500;
+ border-radius : 10px;
+ position: relative;
+ top: 75px;
  
  
 
@@ -133,7 +177,7 @@ input{
  border: 2px solid #B40500;
  border-radius : 10px;
  position: relative;
- top:20px;
+ top:90px;
  line-height: 1.6;
  
 }
@@ -148,7 +192,7 @@ input{
   border: 2px solid #B40500;
   border-radius : 10px;
   position: relative;
-  top: 5px;
+  top: 80px;
   text-align: center;
   font-size: 16px;
   color: white;
@@ -168,6 +212,25 @@ td{
   font-size: 18px;
 }
 
+.search-body{
+ 
+ width: 500px;
+ height: 720px;
+ font-family: sans-serif;
+ font-size: 20px;
+ color: white;
+ box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
+ background: #181A1B;
+ padding: 20px;
+ margin:  auto;
+ border: 2px solid #B40500;
+ border-radius : 10px;
+ position: relative;
+ top: 80px;
+ left: 40px;
+ line-height: 1.6;
+ 
+}
 .sign-up-body{
 	margin: 0;
     font-family: sans-serif;
@@ -180,7 +243,24 @@ td{
 	
 }
 
+.left_side{
+	height: 100%;
+	width: 235px;
+	position: fixed;
+	top: 150px;
+	background-color:#090A0E;
 
+	
+		}
+.right_side{
+	height: 80%;
+	width: 80%;
+	position: relative;
+	left: 17%;
+	top:70px;
+	color: white;
+	
+		}
 
 
 
