@@ -21,12 +21,13 @@ session_start();
 
 
 <style>
-h2{
+h1{
 	font-family: 'Racing Sans One';
 	color: #DBD8D3;
 	text-align: center;
 	position: relative;
-	bottom: 80px;
+	bottom: 95px;
+	font-size: 50px;
 	
 }
 </style>
@@ -36,21 +37,19 @@ h2{
 <div class="topnav">
  <img class = "logo" src = "logo.jpg" >
   <button class = "button" onclick="location.href='logout.php'" type="button">Logout</button>
-  <h2> Welcome to your Go-Kart Dashboard </h2>
+  <h1> Choose Tournament</h1>
   
-  <p style = "color: white; text-align: center; position: relative; bottom: 90px; font-family:'Racing Sans One'; font-size: 20px"> Welcome  <?php
-  
-  echo $user_data['name'];
-  ?> </p> 
 
 </div>
  <div>
-   <button class = "button1" onclick="location.href='player_info.php'" type="button">Personal Info</button>
-   <button class = "button1" onclick="location.href='player_performance.php'" type="button">Performance info</button>
-   <button class = "button1" onclick="location.href='player_tournament.php'" type="button">Tournament</button>
-   
+ <form action ="show_leaderboard.php" method = "post">
+   <button class = "button3" name = "banani" type="submit">Banani Tournament</button>
+   <button class = "button3" name = "gulshan" type="submit">Gulshan Tournament</button>
+   <button class = "button3" name = "uttara" type="submit">Uttara Tournament</button>
+   <button class = "button3" onclick="location.href='player_tournament.php'" type="button">Back</button>
+   </form>
   </div>
-
-
+  
+  
 </body>
 </html>

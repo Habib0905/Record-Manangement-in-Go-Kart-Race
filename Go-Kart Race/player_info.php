@@ -17,7 +17,7 @@ session_start();
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
-  
+  <title> Player Information </title>
 </head>
 <body class = "container">
 <div class="topnav">
@@ -25,7 +25,7 @@ session_start();
   <button class = "button" onclick="location.href='logout.php'" type="button">Logout</button>
   </div>
   
-  <p style = "color: white; text-align: center; position: relative; bottom: 90px; font-family:'Racing Sans One'; font-size: 20px"> Player Home</p>
+ 
    
   <div class = "player-info-body">
        <h1>Personal Information</h1>

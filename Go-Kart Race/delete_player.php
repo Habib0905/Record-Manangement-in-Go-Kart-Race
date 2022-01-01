@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title> Home </title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +10,7 @@
 
 
 <style>
-h1{
+h2{
 	font-family: 'Racing Sans One';
 	color: #DBD8D3;
 	text-align: center;
@@ -20,20 +19,35 @@ h1{
 	
 }
 </style>
-
+ 
 </head>
-
 <body class = "container">
 <div class="topnav">
  <img class = "logo" src = "logo.jpg" >
-  <button class = "button" onclick="location.href='signup.php'" type="button">Sign up</button>
-  <h1> Welcome to Dhaka Go-Kart Page </h1>
+  
+
 </div>
- <div>
-   <button class = "button1" onclick="location.href='admin_login.php'" type="button">Admin login</button>
-   <button class = "button1" onclick="location.href='player_login.php'" type="button">Player login</button>
-  </div>
-
-
+ 
 </body>
 </html>
+
+
+
+
+<script type="text/javascript">
+	if(confirm("Are you sure want to delete ?"))
+	{
+		document.write("<?php 
+		include("connection.php");
+		$query = "delete from player where id = $_POST[delete_id]";
+		$query_run = mysqli_query($link,$query);
+		?>");
+	 	window.location.href = "admin_home.php";
+	}
+	else
+	{
+		window.location.href = "admin_home.php";
+	}
+</script>
+
+
