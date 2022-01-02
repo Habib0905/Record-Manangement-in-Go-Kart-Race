@@ -65,8 +65,9 @@ h2{
 	{
 	?>
 
-	   <div class = "search-box">
-       <h1>Search player using Id</h1>
+	   <div class = "search-box" style = "position: relative; right: 70px;">
+       <h1 style = "font-size: 30px;">Search player using Id</h1>
+	
       <hr>
 	  
 	  <form action="" method="post">
@@ -98,24 +99,35 @@ h2{
 	  
       <h1>Player Information</h1>
       <hr>
-	  <form action = "search_performance.php" method= "post">
-	  <table style = "margin: 0 auto; position: relative; bottom: 200px;">
+	  <form action = "" method= "post">
+	  <table style = "margin: 0 auto; position: relative; bottom: 235px;">
 	  <input type="hidden" name="id" value="<?php echo $row['id']?>"> 
        <br>
-	  <tr>
+	   
+	   <tr>
 	  <th>
-	  <label for="name"><b>Name:</b></label>
+	  <label for="id"><b>ID:</b></label>
 	  </th>
 	  <th>
 	   <?php 
-       echo $row['name'];
+       echo $row['id'];
        ?>
 	   </th>
+	    </tr>
+	  <tr>
+	  <td>
+	  <label for="name"><b>Name:</b></label>
+	  </td>
+	  <td>
+	   <?php 
+       echo $row['name'];
+       ?>
+	   </td>
 	    </tr>
 	   <br>
 	  <tr>
 	  <td>
-	   <label for="age"><b>Age:</b></label>
+	   <label for="dob"><b>DOB:</b></label>
 	   </td>
 	  <td>
 	   <?php 
@@ -189,9 +201,9 @@ h2{
 						</table>
 						
 						</div>
-						<div style = "position: relative; right: 475px; bottom: 6px">
+						<div style = "position: relative; right: 475px; bottom: 20px">
 						
-	  <button class = "button" type = "submit" name = "performance" style = "margin-right: 19px;">Performance data</input>
+	  <button class = "button" type = "submit" name = "performance" style = "margin-right: 19px;">Performance data</button>
 	  <button class = "button" onclick="location.href='admin_home.php'" type="button"formnovalidate>Cancel</button>	
 	  
                          </form>
@@ -204,8 +216,64 @@ h2{
 			
 			?>
 			
+			
+			<?php
+			if(isset($_POST['performance'])){
+			
+			
+			?>
+			<div class = "per_info">
+       <h1>Performance Data</h1>
+	   
+      <hr>
+	  
+	
+<?php
 
 
+$sql = "SELECT * FROM performance where id = '$_POST[id]'";
+if($result = mysqli_query($link, $sql)){
+ if(mysqli_num_rows($result) > 0){
+ echo "<table>";
+ echo "<tr>";
+ echo "<th>Practice Number</th>";
+ echo "<th>Lap Time</th>";
+ echo "<th>Score</th>";
+ echo "<th>Average Score</th>";
+ echo "<th>Percentage Improvement</th>";
+ echo "</tr>";
+ while($row = mysqli_fetch_array($result)){
+ echo "<tr>";
+ echo "<td>" . $row['practise_no'] . "</td>";
+ echo "<td>" . $row['laptime'] . "</td>";
+ echo "<td>" . $row['score'] . "</td>";
+ echo "<td>" . $row['avg_score'] . "</td>";
+ echo "<td>" . $row['percent_imp'] . "</td>";
+ echo "</tr>";
+ }
+ echo "</table>";
+
+ mysqli_free_result($result);
+ } else{
+ echo "No records matching your query were found.";
+ }
+ 
+}
+
+?>
+
+
+   
+	  <div style = "position: relative; right: 280px;">
+	  <button class = "button" onclick="location.href='admin_home.php'" type="button"formnovalidate>Back</button>
+	  </div>
+	      
+      
+</div>	
+
+<?php
+			}
+?>
 
 <!-- --------------------------------------->
 
@@ -215,9 +283,11 @@ h2{
 	{
 	?>
 	   
-	   <div class = "search-box">
-       <h1>Search player using Id</h1>
+	   <div class = "search-box" style = "position: relative; right: 70px;">
+       <h1 style = "font-size: 30px">Update player using Id</h1>
+	
       <hr>
+	  
 	  
 	  <form action="" method="post">
    
@@ -237,7 +307,7 @@ h2{
 		 <div>
 		 <form action = "" method = "post">
 		  <input type="hidden" name="update_id_hidden" value="<?php echo $_POST['update_id'];?>"> 
-		  <div style = "position: relative; right: 200px ">
+		  <div style = "position: relative; right: 200px; bottom: 125px ">
    <button class = "button1" name = "update_info" type="submit">Update Personal Info</button>
    <button class = "button1" name = "update_performance" type="submit">Update Performance Info</button>
    </div>
@@ -271,37 +341,37 @@ h2{
 		
 	   <label for="name"><b>Name:</b></label><?php echo "&nbsp &nbsp &nbsp &nbsp &nbsp"?>
 	  
-       <input  class = "input2" type="text" name="name" value="<?php echo $row['name']?>">
+       <input  class = "input2" type="text" name="name" required value="<?php echo $row['name']?>">
        
 	   <br>
 	  
 	   <label for="dob"><b>Birth Date:</b></label><?php echo "&nbsp"?>
-	   <input  class = "input2" type="text" name="dob" value="<?php echo $row['dob']?>">
+	   <input  class = "input2" type="text" name="dob" required  value="<?php echo $row['dob']?>">
 	   <br>
 	   
        <label for="email"><b>Email:</b></label><?php echo "&nbsp &nbsp &nbsp &nbsp &nbsp"?>
-	   <input  class = "input2" type="text" name="email" value="<?php echo $row['email']?>">
+	   <input  class = "input2" type="text" name="email" required value="<?php echo $row['email']?>">
 	   <br>
 	   
 	   <label for="phone"><b>Phone:</b></label><?php echo " &nbsp &nbsp &nbsp &nbsp"?>
-	   <input  class = "input2" type="text" name="phone" value="<?php echo $row['phone']?>">
+	   <input  class = "input2" type="text" name="phone" required  value="<?php echo $row['phone']?>">
 	   <br>
 	   
        <label for="country"><b>Country:</b></label><?php echo "&nbsp &nbsp &nbsp"?>
-       <input  class = "input2" type="text" name="country" value="<?php echo $row['country']?>">
+       <input  class = "input2" type="text" name="country" required value="<?php echo $row['country']?>">
 	   <br>
        <label for="brand"><b>Kart-Brand:</b></label>
-	   <input  class = "input2" type="text" name="brand" value="<?php echo $row['brand']?>">
+	   <input  class = "input2" type="text" name="brand" required  value="<?php echo $row['brand']?>">
 	   <br>
 
        <label for="sponsor"><b>Sponsor:</b></label><?php echo " &nbsp &nbsp "?>
-       <input  class = "input2" type="text" name="sponsor" value="<?php echo $row['sponsor']?>">
+       <input  class = "input2" type="text" name="sponsor" required value="<?php echo $row['sponsor']?>">
 	   <br>
 
      
 	  <div style = "position: relative; right: 110px; top: 5px">
 	  <button class = "button" type = "submit" name = "save" >Save</button>
-	  <button class = "button" onclick="location.href='admin_home.php'" type="button"formnovalidate>Back</button>
+	  <button class = "button" onclick="location.href='admin_home.php'" type="button"formnovalidate>Cancel</button>
 	  </div>
 	  
 	  </form>
@@ -317,16 +387,46 @@ h2{
 	  
 	    </div>
 		<!------------------>
+		<?php
+		 if(isset($_POST['update_performance'])){
+	
+?>	 
+		 <div>
+		 <form action = "" method = "post">
+		  <input type="hidden" name="update_id_hidden" value="<?php echo $_POST['update_id_hidden'];?>"> 
+		   <div>
+   <button class = "button3" name = "update_existing" type="submit">Update Existing Performance</button>
+   <button class = "button3" name = "insert_performance" type="submit">Insert Performance</button>
+   </div>
+   </form>
+  </div>
+		
+<?php
+		 }
 
+?>
 				
-		<?php	
-    if(isset($_POST['update_performance']))		 
+			<?php	
+    if(isset($_POST['update_existing']))		 
 		 {
 			 ?>
 		<div class = "player-info-body2">
 		<h1>Update Practise Performances</h1>
 		<hr>
-
+        <div style = "position: relative; right: 14px;">
+		<?php
+        echo "<table>";
+        echo "<tr>";
+        echo "<th>Practice Number</th>";
+        echo "<th>LapTime</th>";
+        echo "<th>Score</th>";
+        echo "<th>Average Score</th>";
+        echo "<th>Percentage Improvement</th>";
+        echo "</tr>";
+		?>
+		
+		
+		
 				<?php
 					
 					$sql = "select * from performance where id = '$_POST[update_id_hidden]'";
@@ -338,47 +438,109 @@ h2{
 						?>
 	
 	   <form action = "admin_edit_performance.php" method = "post">
+	   
 	   <input type="hidden" name="id" value="<?php echo $row['id']?>"> 
-       <br>
-		
-	   <label for="name"><b>Practise Number:</b></label><?php echo "&nbsp &nbsp &nbsp &nbsp &nbsp"?>
 	  
-       <input  class = "input2" type="text" name="practise_no" value="<?php echo $row['practise_no']?>">
+       <input type="hidden" name="practise_no" value="<?php echo $row['practise_no']?>">
        
-	   <br>
-	  
-	   <label for="dob"><b>Laptime:</b></label><?php echo "&nbsp"?>
-	   <input  class = "input2" type="text" name="laptime" value="<?php echo $row['laptime']?>">
-	   <br>
-	   
-       <label for="email"><b>Score:</b></label><?php echo "&nbsp &nbsp &nbsp &nbsp &nbsp"?>
-	   <input  class = "input2" type="text" name="score" value="<?php echo $row['score']?>">
-	   <br>
-	   
-	   <label for="phone"><b>Average Score:</b></label><?php echo " &nbsp &nbsp &nbsp &nbsp"?>
-	   <input  class = "input2" type="text" name="avg_score" value="<?php echo $row['avg_score']?>">
-	   <br>
-	   
-       <label for="country"><b>Percentage Improvement:</b></label><?php echo "&nbsp &nbsp &nbsp"?>
-       <input  class = "input2" type="text" name="percent_imp" value="<?php echo $row['percent_imp']?>">
-	   <br>
-
 	  <?php
-					}
-			?>
-	
-      <div style = "position: relative; right: 110px; top: 5px">
+	  
+	  echo "<tr>";
+	  echo "<td>" . $row['practise_no'] . "</td>";
+	  echo '<td><input class="input2" type="text" name="laptime" value="'. $row['laptime'] .'"></td>';
+	  echo '<td><input class="input2" type="text" name="score" value="'. $row['score'] .'"></td>';
+	  echo '<td><input class="input2" type="text" name="avg_score" value="'. $row['avg_score'] .'"></td>';
+	  echo '<td><input class="input2" type="text" name="percent_imp" value="'. $row['percent_imp'] .'"></td>';
+	  echo "</tr>";
+					}	
+      echo "<table>";
+      	  
+	  ?>
+	  
+	  <div style = "position: relative; right: 30px; top: 5px">
 	  <button class = "button" type = "submit" name = "save" >Save</button>
-	  <button class = "button" onclick="location.href='admin_home.php'" type="button"formnovalidate>Back</button>
+	  <button class = "button" onclick="location.href='admin_home.php'" type="button"formnovalidate>Cancel</button>
+	 
 	  </div>
 	  
-	  </form>
-
-<?php
+		</div>
+		</form>
+		
+		 <?php
+					
 		 }
-?>
+	   ?>
+		</div>
+		
+		
+					<?php	
+    if(isset($_POST['insert_performance']))		 
+		 {
+			 ?>
+			 
+		<div class = "player-info-body2">
+		<h1 style = "font-size: 25px;">Insert Practise Performances</h1>
+		<hr>
+        <div style = "position: relative; right: 14px;">
+		<?php
+        echo "<table>";
+        echo "<tr>";
+		echo "<th>Practise Number</th>";
+        echo "<th>LapTime</th>";
+        echo "<th>Score</th>";
+        echo "<th>Average Score</th>";
+        echo "<th>Percentage Improvement</th>";
+        echo "</tr>";
+		?>
+		
+		
+		
+	
+	   <form action = "admin_insert_performance.php" method = "post">
+	   
+	   <input type="hidden" name="insert_id" value="<?php echo $_POST['update_id_hidden'];?>"> 
 	  
-	    </div>
+       
+       
+	  <?php
+	  $sql = "select max(practise_no) from performance where id = '$_POST[update_id_hidden]'";
+					$result = mysqli_query($link,$sql);
+					
+					$result = $result->fetch_array();
+                    $quantity = intval($result[0]) +1;
+
+			?>			
+	  <input type="hidden" name="practise_no_hidden" value="<?php echo $quantity?>">
+	  
+	  <?php
+	  echo "<tr>";
+	  echo "<td>" .$quantity. "</td>";
+	  echo '<td><input class="input2" type="text" name="laptime"></td>';
+	  echo '<td><input class="input2" type="text" name="score" ></td>';
+	  echo '<td><input class="input2" type="text" name="avg_score"></td>';
+	  echo '<td><input class="input2" type="text" name="percent_imp" ></td>';
+	  echo "</tr>";
+						
+      echo "<table>";
+      	  
+	  ?>
+	  
+	  <div style = "position: relative; right: 100px; top: 5px">
+	  <button class = "button" type = "submit" name = "save" >Insert</button>
+	  <button class = "button" onclick="location.href='admin_home.php'" type="button"formnovalidate>Cancel</button>
+	 
+	  </div>
+	  
+		</div>
+		</form>
+		
+		 <?php
+					
+		 }
+	   ?>
+		</div>
+		
+		
 		
 		
 		<!------------------->
@@ -445,8 +607,8 @@ h2{
 	{
 	?>
 
-	   <div class = "search-box">
-       <h1>Search player using Id</h1>
+	   <div class = "search-box" style = "position: relative; top: 150px; left: 22px">
+       <h1 style = "color: white">Delete player using Id</h1>
       <hr>
 	  
 	  <form action="delete_player.php" method="post">
@@ -469,7 +631,8 @@ h2{
 					?>
 					
 					<div class = "show_all_players_body">
-						<h1>List of all players</h1>
+						<h1><u>List of all players</u></h1>
+						
  <?php 
 $query = "select * from player";
 if($result =  mysqli_query($link,$query)){
@@ -484,7 +647,7 @@ if($result =  mysqli_query($link,$query)){
  echo "<th>Kart-brand</th>";
  echo "<th>Sponsor</th>";
  echo "<th>Email</th>";
- echo "<th>View Performancee</th>";
+
  echo "</tr>";
  while($row = mysqli_fetch_array($result)){
  echo "<tr>";
@@ -496,7 +659,7 @@ if($result =  mysqli_query($link,$query)){
  echo "<td>" . $row['brand'] . "</td>";
  echo "<td>" . $row['sponsor'] . "</td>";
  echo "<td>" . $row['email'] . "</td>";
- echo "<td>" . $row['phone'] . "</td>";
+
  echo "</tr>";
  }
  echo "</table>";
@@ -510,22 +673,242 @@ if($result =  mysqli_query($link,$query)){
 }
 
 ?>
+<button class = "button" onclick="location.href='admin_home.php'" type="button" style = "position: relative; right: 450px"; >Back</button>
 						
 						<?php
 					
 				}
 			?>
-			
-			
-			
-
-
-	
-      
-	  
-				
 				
 
 </div>
+
+
+
+   <?php
+	if(isset($_POST['tournament']))
+	{
+	?>
+	
+	 <div>
+		 <form action = "" method = "post">
+		  
+		  <div>
+		  <form action = "" method = "post">
+          <button class = "button3" name = "banani" type="submit">Banani Tournament</button>
+          <button class = "button3" name = "gulshan" type="submit">Gulshan Tournament</button>
+		  <button class = "button3" name = "uttara" type="submit">Uttara Tournament</button>
+		  
+   </div>
+   </form>
+  </div>
+	
+<?php
+	}
+?>
+
+ <?php
+	if(isset($_POST['banani']))
+	{
+	?>
+
+<div class = "player-info-body2">
+		<h1 style = "font-size: 25px;">Update Banani Tournament Performances</h1>
+		<hr>
+        <div>
+		<?php
+        echo "<table>";
+        echo "<tr>";
+        echo "<th>Player ID</th>";
+        echo "<th>Name</th>";
+        echo "<th>Points</th>";
+        echo "<th>Time taken</th>";
+        echo "</tr>";
+		?>
+		
+		
+		
+				<?php
+					
+					$sql = $sql = "SELECT id, name, points,time_taken FROM player, participates where tour_id = 1 AND player.id = participates.player_id ";
+					$result = mysqli_query($link,$sql);
+					
+					while ($row = mysqli_fetch_assoc($result)) 
+					{
+				       
+						?>
+	
+	   <form action = "admin_edit_tournament.php" method = "post">
+	   
+	   <input type="hidden" name="id" value="<?php echo $row['id']?>"> 
+	  
+       <input  class = "input2" type="hidden" name="practise_no" value="<?php echo $row['practise_no']?>">
+	   
+	   <input  class = "input2" type="hidden" name="tour_id" value= 1>
+       
+	  <?php
+	  echo "<tr>";
+	  echo "<td>" . $row['id'] . "</td>";
+	  echo "<td>" . $row['name'] . "</td>";
+      echo '<td><input class="input2" type="text" name="points" value="'. $row['points'] .'"></td>';
+	  echo '<td><input class="input2" type="text" name="time_taken" value="'. $row['time_taken'] .'"></td>';
+
+	  echo "</tr>";
+					}	
+      echo "<table>";
+      	  
+	  ?>
+	  
+	  <div style = "position: relative; right: 110px; top: 5px">
+	  <button class = "button" type = "submit" name = "save" >Save</button>
+	  <button class = "button" onclick="location.href='admin_home.php'" type="button"formnovalidate>Cancel</button>
+	  </div>
+	  
+		</div>
+		</form>
+		
+		 <?php
+					
+		 }
+	   ?>
+		</div>
+		
+		
+		
+		 <?php
+	if(isset($_POST['gulshan']))
+	{
+	?>
+
+<div class = "player-info-body2">
+		<h1 style = "font-size: 24px;">Update Gulshan Tournament Performances</h1>
+		<hr>
+        <div>
+		<?php
+        echo "<table>";
+        echo "<tr>";
+        echo "<th>Player ID</th>";
+        echo "<th>Name</th>";
+        echo "<th>Points</th>";
+        echo "<th>Time taken</th>";
+        echo "</tr>";
+		?>
+		
+		
+		
+				<?php
+					
+					$sql = $sql = "SELECT id, name, points,time_taken FROM player, participates where tour_id = 2 AND player.id = participates.player_id ";
+					$result = mysqli_query($link,$sql);
+					
+					while ($row = mysqli_fetch_assoc($result)) 
+					{
+				       
+						?>
+	
+	   <form action = "admin_edit_tournament.php" method = "post">
+	   
+	   <input type="hidden" name="id" value="<?php echo $row['id']?>"> 
+	  
+       <input  class = "input2" type="hidden" name="practise_no" value="<?php echo $row['practise_no']?>">
+	   
+	   <input  class = "input2" type="hidden" name="tour_id" value= 2>
+       
+	  <?php
+	  echo "<tr>";
+	  echo "<td>" . $row['id'] . "</td>";
+	  echo "<td>" . $row['name'] . "</td>";
+	 echo '<td><input class="input2" type="text" name="points" value="'. $row['points'] .'"></td>';
+	  echo '<td><input class="input2" type="text" name="time_taken" value="'. $row['time_taken'] .'"></td>';
+
+	  echo "</tr>";
+					}	
+      echo "<table>";
+      	  
+	  ?>
+	  
+	  <div style = "position: relative; right: 110px; top: 5px">
+	  <button class = "button" type = "submit" name = "save" >Save</button>
+	  <button class = "button" onclick="location.href='admin_home.php'" type="button"formnovalidate>Cancel</button>
+	  </div>
+	  
+		</div>
+		</form>
+		
+		 <?php
+					
+		 }
+	   ?>
+		</div>
+		
+		
+		
+		 <?php
+	if(isset($_POST['uttara']))
+	{
+	?>
+
+<div class = "player-info-body2">
+		<h1 style = "font-size: 25px;">Update Uttara Tournament Performances</h1>
+		<hr>
+        <div>
+		<?php
+        echo "<table>";
+        echo "<tr>";
+        echo "<th>Player ID</th>";
+        echo "<th>Name</th>";
+        echo "<th>Points</th>";
+        echo "<th>Time taken</th>";
+        echo "</tr>";
+		?>
+		
+		
+		
+				<?php
+					
+					$sql = $sql = "SELECT id, name, points,time_taken FROM player, participates where tour_id = 3 AND player.id = participates.player_id ";
+					$result = mysqli_query($link,$sql);
+					
+					while ($row = mysqli_fetch_assoc($result)) 
+					{
+				       
+						?>
+	
+	   <form action = "admin_edit_tournament.php" method = "post">
+	   
+	   <input type="hidden" name="id" value="<?php echo $row['id']?>"> 
+	  
+       <input  class = "input2" type="hidden" name="practise_no" value="<?php echo $row['practise_no']?>">
+	   
+	   <input  class = "input2" type="hidden" name="tour_id" value = 3>
+       
+	  <?php
+	  echo "<tr>";
+	  echo "<td>" . $row['id'] . "</td>";
+	  echo "<td>" . $row['name'] . "</td>";
+	  echo '<td><input class="input2" type="text" name="points" value="'. $row['points'] .'"></td>';
+	  echo '<td><input class="input2" type="text" name="time_taken" value="'. $row['time_taken'] .'"></td>';
+
+	  echo "</tr>";
+					}	
+      echo "<table>";
+      	  
+	  ?>
+	  
+	  <div style = "position: relative; right: 110px; top: 5px">
+	  <button class = "button" type = "submit" name = "save" >Save</button>
+	  <button class = "button" onclick="location.href='admin_home.php'" type="button"formnovalidate>Cancel</button>
+	  </div>
+	  
+		</div>
+		</form>
+		
+		 <?php
+					
+		 }
+	   ?>
+		</div>
+		
+	</div>	
 </body>
 </html>

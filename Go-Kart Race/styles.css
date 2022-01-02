@@ -108,7 +108,7 @@
   transition-duration: 0.4s;
   cursor: pointer;
   position: relative;
-  top: 250px;
+  top: 254px;
   left: 540px;
   
   
@@ -171,11 +171,12 @@
  box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
  background: #181A1B;
  padding: 20px;
- margin:  auto;
+ margin: auto;
  border: 2px solid #B40500;
  border-radius : 10px;
  position: relative;
  top: 75px;
+ 
  
  
 
@@ -242,19 +243,21 @@ input{
 .player-info-body2{
  
  width: 500px;
- height: 625px;
+ height: auto;
  font-family: sans-serif;
  font-size: 20px;
  color: white;
  box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
  background: #181A1B;
  padding: 20px;
+ padding-bottom: 90px;
  margin:  auto;
  border: 2px solid #B40500;
  border-radius : 10px;
  position: relative;
  top:90px;
  line-height: 1.6;
+ 
  
 }
 
@@ -277,7 +280,7 @@ input{
 }
 
 .show_all_players_body {
-  width: 1100px;
+  width: 1000px;
   height: auto;
   box-shadow: 0 0 3px 0 rgba(163, 24, 24, 0.3);
   background: #181A1B;
@@ -290,6 +293,7 @@ input{
   text-align: center;
   font-size: 16px;
   color: white;
+  padding-bottom: 90px;
 
 }
 
@@ -330,7 +334,7 @@ td,th{
 .search-body{
  
  width: 500px;
- height: 800px;
+ height: 700px;
  font-family: sans-serif;
  font-size: 20px;
  color: white;
@@ -365,7 +369,7 @@ td,th{
 	height: 100%;
 	width: 235px;
 	position: fixed;
-	top: 150px;
+	top: 120px;
 	background-color:#090A0E;
 
 	

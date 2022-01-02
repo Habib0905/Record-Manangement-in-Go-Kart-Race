@@ -75,10 +75,14 @@ session_start();
 
     
 	  <div style = "position: relative; right: 110px; top: 45px">
-	  <button class = "button" type = "submit" name = "submit">Edit Info</input>
+	  <form action = "player_edit_info.php" method = post>
+	  <button class = "button" type = "submit" name = "edit_info">Edit Info</input>
+	  </form>
 	  <button class = "button" onclick="location.href='player_home.php'" type="button"formnovalidate>Back</button>
 	  </div>
   </div>
+  
+  
 
 
 

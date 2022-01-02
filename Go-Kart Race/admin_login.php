@@ -54,7 +54,7 @@
 						}
 						else{
 							?>
-							<span style = "color: white; position: relative; left:615px; bottom: 65px " >Wrong Password !!</span>
+							<span style = "color: white; position: relative; left:615px; top: 10px " >Wrong Password !!</span>
 							<?php
 						}
 					}

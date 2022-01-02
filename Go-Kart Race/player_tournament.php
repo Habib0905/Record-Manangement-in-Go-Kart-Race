@@ -45,8 +45,9 @@ h2{
 
 </div>
  <div>
-   <button class = "button1" onclick="location.href='player_leaderboard.php'" type="button">Leaderboard</button>
-   <button class = "button1" onclick="location.href='player_participate.php'" type="button">Participate in Tournament</button>
+   <button class = "button3" onclick="location.href='player_leaderboard.php'" type="button">Leaderboard</button>
+   <button class = "button3" onclick="location.href='player_participate.php'" type="button">Participate in Tournament</button>
+   <button class = "button3" onclick="location.href='player_home.php'" type="button">Back</button>
   
   </div>
 

@@ -35,12 +35,16 @@ h2{
 
 
 <script type="text/javascript">
-	if(confirm("Are you sure want to delete ?"))
+	if(confirm("Are you sure want to delete this player ?"))
 	{
 		document.write("<?php 
 		include("connection.php");
 		$query = "delete from player where id = $_POST[delete_id]";
 		$query_run = mysqli_query($link,$query);
+		$sql = "delete from performance where id = $_POST[delete_id]";
+		$sql_run = mysqli_query($link,$sql);
+		$sqli = "delete from participates where player_id = $_POST[delete_id]";
+		$sqli_run = mysqli_query($link,$sqli);
 		?>");
 	 	window.location.href = "admin_home.php";
 	}
